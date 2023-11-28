@@ -1,0 +1,63 @@
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+admin.initializeApp();
+
+exports.performDataReset =
+functions.https.onRequest(async (request, response) => {
+  const db = admin.database();
+  const firestore = admin.firestore();
+
+  // Set a reference to the "jumlah_botol" node under "Test1"
+  const jumlahBotolRef = db.ref("Test1/jumlah_botol");
+
+  // Set new values for "Plastik," "Kertas," and "Kaleng"
+  const newData = {
+    "Plastik": 0,
+    "Kertas": 0,
+    "Kaleng": 0,
+  };
+
+  // Set references to "Plastik," "Kertas," and "Kaleng" under "Test1"
+  const plastikRef = db.ref("Test1/Plastik");
+  const kertasRef = db.ref("Test1/Kertas");
+  const kalengRef = db.ref("Test1/Kaleng");
+
+  try {
+    // Read data for "Plastik," "Kertas," and "Kaleng" from Realtime Database
+    const [plastikSnapshot, kertasSnapshot, kalengSnapshot] =
+    await Promise.all([
+      plastikRef.once("value"),
+      kertasRef.once("value"),
+      kalengRef.once("value"),
+    ]);
+
+    // Remove subchild "Plastik," "Kertas," and "Kaleng"
+    await Promise.all([
+      plastikRef.remove(),
+      kertasRef.remove(),
+      kalengRef.remove(),
+    ]);
+
+    // Update the "jumlah_botol" value in the database
+    await jumlahBotolRef.set(newData);
+
+    // Get the current date and time
+    const currentDate = new Date();
+    const formattedDate = currentDate.toISOString();
+
+    // Add the current date to the "Reset" subchild under "Test1"
+    const resetRef = db.ref("Test1/Reset");
+    await resetRef.push().set({pembuangan: formattedDate});
+
+    // Save data for "Plastik," "Kertas," and "Kaleng" as documents in Firestore
+    await firestore.collection("database").doc("Test1").set({
+      Plastik: plastikSnapshot.val(),
+      Kertas: kertasSnapshot.val(),
+      Kaleng: kalengSnapshot.val(),
+    });
+
+    response.send("Reset berhasil");
+  } catch (error) {
+    response.status(500).send("An error occurred: " + error);
+  }
+});

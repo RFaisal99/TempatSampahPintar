@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "328067443208",
+    "firebase_url": "https://ta-smarttrashbin-default-rtdb.firebaseio.com",
+    "project_id": "ta-smarttrashbin",
+    "storage_bucket": "ta-smarttrashbin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328067443208:android:53d5589468de89dd743fbd",
+        "android_client_info": {
+          "package_name": "com.stb.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328067443208-nqfv9m06idpp4k1uih5qul3bsb47tqn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDnRsI-osPBattusNQ08ASofNpfcZdQ1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328067443208-nqfv9m06idpp4k1uih5qul3bsb47tqn5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

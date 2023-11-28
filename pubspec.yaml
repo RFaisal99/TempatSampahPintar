@@ -1,0 +1,60 @@
+name: stb
+description: A new Flutter project.
+version: 1.0.0+1
+environment: 
+  sdk: '>=2.12.0 <3.0.0'
+dependencies: 
+  flutter: 
+    sdk: flutter
+  permission_handler: ^11.0.1
+  flutter_launcher_icons: ^0.13.1
+  firebase_core: ^2.20.0
+  firebase_database: ^10.2.7
+  cloud_firestore: ^4.12.1
+  cloud_functions: ^4.5.2
+  firebase_messaging: ^14.7.3
+  firebase_auth: ^4.12.1
+  shared_preferences: ^2.2.2
+  provider: ^6.0.5
+  flutter_local_notifications: ^16.1.0
+  cached_network_image: ^3.2.1
+  flutter_svg: ^2.0.8
+  intl: ^0.18.0
+  http: ^1.1.0
+  excel: ^3.0.0
+  convert: ^3.1.1
+dev_dependencies: 
+  flutter_test: 
+    sdk: flutter
+flutter: 
+  uses-material-design: true
+  assets: 
+    - assets/
+    - assets/images/
+  fonts: 
+    - family: Open Sans
+      fonts: 
+        - asset: assets/fonts/OpenSansExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/OpenSansRomanExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/OpenSansRomanSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/OpenSansRomanBold.ttf
+          weight: 700
+        - asset: assets/fonts/OpenSansRomanCondensedBold.ttf
+          weight: 700
+        - asset: assets/fonts/OpenSansRomanRegular.ttf
+          weight: 400
+    - family: Inter
+      fonts: 
+        - asset: assets/fonts/InterSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/InterMedium.ttf
+          weight: 500
+        - asset: assets/fonts/InterRegular.ttf
+          weight: 400
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icon.png"
